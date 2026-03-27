@@ -5,7 +5,7 @@ The tool provides an overall assessment score based on the provided metrics and 
 ## Local use
 The tool can be run offline
 
-- Install [RStudio](https://posit.co/download/rstudio-desktop/) and [install](https://www.dataquest.io/blog/install-package-r/) the packages listed in lines 10-13 in `app.R`
+- Install [RStudio](https://posit.co/download/rstudio-desktop/) and [install](https://www.dataquest.io/blog/install-package-r/) the packages listed in lines 10-14 in `app.R`
 - Clone this repo (or download manually by clicking the green Code button above and selecting Download Zip(the code)
 - Open the `app.R` in RStudio
 - Comment out the `GET` command near the top of `app.R` to disable overwriting the assessment rubric that was downloaded as part of the Clone step
