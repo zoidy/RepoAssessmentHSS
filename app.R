@@ -17,7 +17,7 @@ library(httr)
 # data
 ##########################
 
-#GET("https://github.com/zoidy/RepoAssessmentHSS/raw/main/rubric.xlsx", write_disk("rubric.xlsx", overwrite = TRUE))
+GET("https://github.com/zoidy/RepoAssessmentHSS/raw/main/rubric.xlsx", write_disk("rubric.xlsx", overwrite = TRUE))
 data <- read_excel("rubric.xlsx")
 
 # Group the Activities that belong together:
