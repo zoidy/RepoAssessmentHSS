@@ -1,0 +1,52 @@
+---
+title: "Values-based Assessment of Institutional Data Repository Services"
+subtitle: "Summary report, grouped by Activity"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: pdf_document
+params:
+  score: 0
+  maxscore: 0
+  n: NA
+---
+
+
+## Your weighted score: `r params$score` out of `r params$maxscore`
+
+
+```{r echo=FALSE}
+#params$score
+#params$n
+```
+
+```{r echo=FALSE, results='asis'}
+activities <- params$n
+for(i in seq_len(length(activities))){
+  cat(paste("##", names(activities)[[i]], "\n"))
+  
+  activity <- activities[[i]]
+  
+  for(j in seq_len(length(activity))){
+    activityitems <- activity[[j]]
+    
+    if(activityitems$metriclabel=="") {} 
+    else 
+      cat(paste0("**",activityitems$metriclabel, "** (weight: ", activityitems$metricweight, ")"))
+    cat("\n\n")
+    cat(paste(activityitems$value), "\n\n")
+    choices <- strsplit(activityitems$metricchoices, "\n")[[1]]
+    for(j in seq_len(length(choices))){
+      if(sub("\\s\\(\\d\\)$", "", choices[[j]]) == activityitems$metricchoice){
+        cat(paste("- [x]", choices[[j]]), "\n")
+      } else {
+        cat(paste("- [ ]", choices[[j]]), "\n")
+      }
+    }
+    notes <- trimws(activityitems$notes)
+    if(notes != "")
+      cat(paste("\n", trimws(activityitems$notes), "\n\n&nbsp;"))
+    cat("\n\n")
+  }
+  cat("\n\n")
+}
+
+```
